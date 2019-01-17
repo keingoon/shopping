@@ -13,20 +13,3 @@
  *= require_tree .
  *= require_self
  */
-.home-message{
-  text-align: center;
-  color: #008000;
-}
-
-.loginbtn{
-  margin:0 auto;
-}
-
-.newuser-message{
-  text-align: center;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
