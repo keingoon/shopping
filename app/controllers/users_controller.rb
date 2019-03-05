@@ -8,14 +8,16 @@ class UsersController < ApplicationController
   end
    
   def show
-    @user = User.find_by(id: params[:id]) 
+    @user = User.find_by(id: params[:id])
+    redirect_to root_url unless @user.activated? 
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "ようこそshopping-appへ！"
-      redirect_to user_url(@user)
+      @user.send_activation_email
+      flash[:info] = "アカウント有効化のためにメールアドレスをチェックしてください"
+      redirect_to root_url
       # 登録成功を扱う
     else
       render 'new'
