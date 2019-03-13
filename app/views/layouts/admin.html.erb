@@ -1,2 +1,21 @@
-<% content_for :header do %> <% end %>
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag    'admin/admin', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+<% end %>
+
+<% content_for :header do %>
+  <div>
+  </div>
+<% end %>
+
+<% content_for :sidebar do %>
+  <div class="row">
+    <div class="col-2">
+      <%= render'layouts/sidebar' %>
+    </div>
+    <div class="col-10">
+      <%= yield %>
+    </div>
+<% end %>
+
 <% parent_layout 'application' %>

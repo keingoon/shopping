@@ -1,6 +1,6 @@
 <%= form_for @user do |f| %>
   <div class="form-group">
-    <%= render 'shared/error_messages' %>
+    <%= render partial: 'shared/error_messages', locals: { model: @user } %>
 
     <%= f.label :name %>
     <%= f.text_field :name, id: :user_name, class: 'form-control' %>

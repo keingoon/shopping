@@ -7,6 +7,11 @@ ruby '2.3.7'
 gem 'rails', '~> 5.2.2'
 # ハッシュ化のためのgem
 gem 'bcrypt', github: 'codahale/bcrypt-ruby'
+# 架空のユーザを大量作成する
+gem 'faker'
+# ページネーションのためのgem
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server

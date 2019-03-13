@@ -1,10 +1,10 @@
-<% if @user.errors.any? %>
+<% if model.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      エラーの数は<%= @user.errors.count %>つ
+      エラーの数は<%= model.errors.count %>つ
     </div>
     <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+      <% model.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

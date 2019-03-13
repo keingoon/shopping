@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :companies
+  end
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
