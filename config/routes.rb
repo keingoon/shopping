@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do
+    get 'login', to:'sessions#new'
+    post 'login', to:'sessions#create'
+    delete '/logout', to:'sessions#destroy'
     resources :companies
+    resources :administrators
   end
   get 'password_resets/new'
   get 'password_resets/edit'

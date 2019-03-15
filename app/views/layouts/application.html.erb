@@ -23,7 +23,7 @@
         <%= yield :header %>
       <% end %>
     </header>
-
+    
     <% if yield(:sidebar).empty? %>
       <%= render 'layouts/front' %>
     <% else %>
