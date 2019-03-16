@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>ユーザー一覧</h1>  
+  <%= will_paginate @users %>
+
+  <table class="table">
+    <caption>ユーザー一覧</caption>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">名前</th>
+        <th scope="col">カナ</th>
+        <th scope="col">メールアドレス</th>
+        <th scope="col">削除ボタン</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= link_to user.name, admin_user_path(user) %></td>
+          <td><%= user.name_kana %></td>
+          <td><%= user.email %></td>
+          <td><%= link_to "削除", admin_user_path(user), method: :delete, data: {confirm: "削除してもいいですか？"} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
+
+  <%= will_paginate %>
+</div>  
