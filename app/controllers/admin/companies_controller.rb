@@ -1,11 +1,11 @@
 class Admin::CompaniesController < Admin::Base
+  before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   def index
     @companies = Company.paginate(page: params[:page])
   end
 
   def show
-    @company = Company.find_by(id: params[:id])
   end
   
   def new
@@ -23,11 +23,9 @@ class Admin::CompaniesController < Admin::Base
   end
 
   def edit
-    @company = Company.find_by(id: params[:id])
   end
 
   def update
-    @company = Company.find_by(id: params[:id])
     if @company.update_attributes(company_params)
       flash[:success] = "企業編集に成功しました"
       redirect_to admin_company_path(@company)
@@ -37,7 +35,7 @@ class Admin::CompaniesController < Admin::Base
   end
 
   def destroy
-    Company.find_by(id: params[:id]).destroy
+    @company.destroy
     flash[:success] = "企業を削除しました"
     redirect_to admin_companies_path
   end
@@ -47,5 +45,9 @@ class Admin::CompaniesController < Admin::Base
 
     def company_params
       params.require(:company).permit(:name, :email)
+    end
+
+    def set_company
+      @company = Company.find_by(id: params[:id])
     end
 end

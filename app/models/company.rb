@@ -1,4 +1,5 @@
 class Company < ApplicationRecord
+  has_many :products, dependent: :destroy
   before_save :downcase_email
 
   validates :name, presence: true, length: {maximum: 50}

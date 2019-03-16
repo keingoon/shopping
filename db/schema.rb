@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_124334) do
+ActiveRecord::Schema.define(version: 2019_03_16_120741) do
 
   create_table "administrators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", null: false
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2019_03_15_124334) do
     t.string "email"
   end
 
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id", "created_at"], name: "index_products_on_company_id_and_created_at"
+    t.index ["company_id"], name: "index_products_on_company_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -37,7 +46,6 @@ ActiveRecord::Schema.define(version: 2019_03_15_124334) do
     t.string "name_kana"
     t.string "password_digest"
     t.string "remember_digest"
-    t.boolean "admin", default: false
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
@@ -46,4 +54,5 @@ ActiveRecord::Schema.define(version: 2019_03_15_124334) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "products", "companies"
 end

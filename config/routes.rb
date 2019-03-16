@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     delete '/logout', to:'sessions#destroy'
     resources :companies
     resources :administrators
+    resources :products
   end
   get 'password_resets/new'
   get 'password_resets/edit'

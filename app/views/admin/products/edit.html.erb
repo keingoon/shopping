@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>商品編集</h1>
+
+  <%= form_for(@product, url: admin_product_path(@product)) do |f| %>
+    <%= render partial: 'shared/error_messages', locals: { model: @product } %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>

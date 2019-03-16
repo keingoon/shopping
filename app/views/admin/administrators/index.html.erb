@@ -32,7 +32,7 @@
             <td><%= link_to "編集", edit_admin_administrator_url(admin), class: 'btn btn-primary' %></td>
           <% end %>
           <% if current_admin && current_admin.manager? %>
-            <td><%= link_to "削除", admin_administrator_url(admin), method: :delete, date:{confirm: "本当に削除してもいいですか？"} %>
+            <td><%= link_to "削除", admin_administrator_url(admin), method: :delete, data:{confirm: "本当に削除してもいいですか？"} %>
           <% end %>
         </tr>
       <% end %>

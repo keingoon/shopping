@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>商品一覧</h1>
+  <div class="row">
+    <div class="col">
+      <%= will_paginate @products%>
+    </div>
+    <div class="col text-right">
+      <%= link_to "商品登録", new_admin_product_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+
+  <table class="table">
+    <caption>商品一覧<caption>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">商品名</th>
+        <th scope="col">出品企業名</th>
+        <th scope="col">編集ボタン</th>
+        <th scope="col">削除ボタン</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= link_to product.name, admin_product_path(product) %></td>
+          <td><%= link_to product.company.name, admin_company_path(product.company) %></td>
+          <td><%= link_to "編集", edit_admin_product_path(product), class: 'btn btn-primary' %></td>
+          <% if current_admin && current_admin.manager? %>
+            <td><%= link_to "削除", admin_product_path(product), method: :delete, data:{confirm: "本当に削除してもいいですか？"} %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= will_paginate @products %>
+</div>
+
+        
+
