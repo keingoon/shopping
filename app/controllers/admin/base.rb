@@ -12,6 +12,14 @@ class Admin::Base < ApplicationController
     end
   end
 
+  # manager権限があるかどうかで挙動を変える
+  def admin_manager
+    unless current_admin.manager?
+      flash[:danger] = "権限がありません"
+      redirect_to admin_companies_path
+    end
+  end
+
   # アクションに入る前にログインが必要な場合のメソッド
   def should_login?
     true

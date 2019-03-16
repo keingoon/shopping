@@ -1,19 +1,20 @@
 <div class="container">
-  <h1>企業一覧</h1>
   <div class="row">
     <div class="col">
-      <%= will_paginate @companies %>
+      <h1>企業一覧</h1>
     </div>
-    <div class="col text-right">
-      <%= link_to "企業登録", new_admin_company_path, class: 'btn btn-primary' %>
+    <div class="col">
+      <%= link_to "企業登録", new_admin_company_path, class: 'btn btn-primary new-btn' %>
     </div>
   </div>
+
+  <%= will_paginate @companies %>
 
   <table class="table">
     <caption>企業一覧</caption>
     <thead>
       <tr>
-        <th >ID</th>
+        <th>ID</th>
         <th scope="col">企業名</th>
         <th scope="col">メールアドレス</th>
         <th scope="col">編集ボタン</th>

@@ -1,6 +1,10 @@
 class Admin::AdministratorsController < Admin::Base
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
   
+  def index
+    @administrators = Administrator.paginate(page: params[:page])
+  end
+ 
   def new
     @administrator = Administrator.new
   end
@@ -11,7 +15,6 @@ class Admin::AdministratorsController < Admin::Base
       flash[:success] = "管理者作成に成功しました"
       redirect_to admin_administrator_path(@administrator)
     else
-      flash[:danger] = "管理者作成に失敗しました"
       render 'new'
     end
   end
@@ -23,9 +26,18 @@ class Admin::AdministratorsController < Admin::Base
   end
 
   def update
+    if @administrator.update(admin_params)
+      flash[:success] = "管理者登録に成功しました"
+      redirect_to admin_administrator_path(@administrator)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    Administrator.find_by(id: params[:id]).destroy
+    flash[:success] = "管理者を削除しました"
+    redirect_to admin_administrators_path
   end
 
   private

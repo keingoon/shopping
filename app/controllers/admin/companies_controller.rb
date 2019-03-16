@@ -37,6 +37,9 @@ class Admin::CompaniesController < Admin::Base
   end
 
   def destroy
+    Company.find_by(id: params[:id]).destroy
+    flash[:success] = "企業を削除しました"
+    redirect_to admin_companies_path
   end
 
   
