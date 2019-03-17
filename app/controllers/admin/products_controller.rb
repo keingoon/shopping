@@ -2,7 +2,7 @@ class Admin::ProductsController < Admin::Base
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.paginate(page: params[:page])
+    @products = Product.search_for_product(params[:company_id]).paginate(page: params[:page])
   end
 
   def show
