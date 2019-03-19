@@ -1,40 +1,5 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>企業一覧</h1>
-    </div>
-    <div class="col">
-      <%= link_to "企業登録", new_admin_company_path, class: 'btn btn-primary new-btn' %>
-    </div>
-  </div>
-
-  <%= will_paginate @companies %>
-
-  <table class="table">
-    <caption>企業一覧</caption>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th scope="col">企業名</th>
-        <th scope="col">メールアドレス</th>
-        <th scope="col">編集ボタン</th>
-        <th scope="col">削除ボタン</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @companies.each do |company| %>
-        <tr>
-          <td><%= company.id %></td>
-          <td><%= link_to "#{company.name}", admin_company_path(company), class: 'company-link' %></td>
-          <td><%= company.email %></td>
-          <td><%= link_to "編集", edit_admin_company_url(company), class: 'btn btn-primary' %></td>
-          <% if current_admin && current_admin.manager? %>
-            <td><%= link_to "削除", admin_company_url(company), method: :delete, date:{confirm: "本当に削除してもいいですか？"} %>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-</table>
-
-  <%= will_paginate @companies %>
+  <h1>商品詳細</h1>
+  <p>名前 : <%= @product.name %></p>
+  <p>画像 : <%= @product.image.thumb %></p>
 </div>
