@@ -1,0 +1,15 @@
+<div class="cart_sidebar border">
+  <h4>小計 (<%= @cart_items.count %> 点) : ￥<%= @full_price_items %></h4>
+  <h5>ギフトの設定</h5> <!--　ここにチェックボックスを置く --!>
+  <div class="text-center">
+    <%= link_to "レジに進む" ,'#', class: 'btn btn-warning', :style => "width :80%; "%>
+  </div>
+  <div class="one_click_message">
+  <p class="line_message_out"><span class="line_message_in">または</span></p>
+    <p class="text-center"> <%= link_to "サインイン", login_path %> して1-clickをonにする</p>
+  </div>
+</div>
+
+<div class="recommend_sidebar border" style="margin-top: 20px;">
+  <h5 class="text-center">おすすめ商品と人気商品</h5>
+</div>

@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :company
   validates :name, presence: true, length: {maximum: 50}
+  validates :price, presence: true
   mount_uploader :image, ImageUploader
 
   # 企業名を選択し、それを満たす商品を検索する

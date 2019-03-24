@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_17_044026) do
+ActiveRecord::Schema.define(version: 2019_03_21_032854) do
 
   create_table "administrators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", null: false
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2019_03_17_044026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "manager", default: false
+  end
+
+  create_table "cart_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "product_id"
+    t.bigint "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["product_id"], name: "index_cart_items_on_product_id"
+  end
+
+  create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -35,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_03_17_044026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.integer "price"
     t.index ["company_id", "created_at"], name: "index_products_on_company_id_and_created_at"
     t.index ["company_id"], name: "index_products_on_company_id"
   end
@@ -55,5 +71,7 @@ ActiveRecord::Schema.define(version: 2019_03_17_044026) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "cart_items", "carts"
+  add_foreign_key "cart_items", "products"
   add_foreign_key "products", "companies"
 end

@@ -24,6 +24,7 @@
         <th scope="col">商品名</th>
         <th scope="col">出品企業名</th>
         <th scope="col">画像</th>
+        <th scope="col">値段</th>
         <th scope="col">編集ボタン</th>
         <th scope="col">削除ボタン</th>
       </tr>
@@ -35,6 +36,7 @@
           <td><%= link_to product.name, admin_product_path(product) %></td>
           <td><%= link_to product.company.name, admin_company_path(product.company) %></td>
           <td><%= product.image.url %></td>
+          <td><%= product.price %></td>
           <td><%= link_to "編集", edit_admin_product_path(product), class: 'btn btn-primary' %></td>
           <% if current_admin && current_admin.manager? %>
             <td><%= link_to "削除", admin_product_path(product), method: :delete, data:{confirm: "本当に削除してもいいですか？"} %></td>

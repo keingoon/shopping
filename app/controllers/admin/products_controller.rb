@@ -43,9 +43,9 @@ class Admin::ProductsController < Admin::Base
   private
     def product_params
       if params[:action] == "create"
-        params.require(:product).permit(:company_id, :name, :image)
+        params.require(:product).permit(:company_id, :name, :image, :price)
       elsif params[:action] == "update"
-        params.require(:product).permit(:name, :image)
+        params.require(:product).permit(:name, :image, :price)
       end
     end
 

@@ -16,7 +16,7 @@
         <a class="nav-link" href="#">注文履歴</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">カート</a>
+        <%= link_to "カート", cart_path(current_cart), class: 'nav-link' %>
       <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">ログイン</a>
         <div class="dropdown-menu" style="width: 400%;"  aria-labelledby="navbarDropdownMenuLink">

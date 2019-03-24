@@ -49,3 +49,33 @@
   }
 }
 
+
+/* cart sidebar */
+.cart_sidebar {
+  padding: 20px;
+  background-color: #CCFFFF;
+}
+
+.line_message_out {
+  position: relative;
+  text-align: center;
+}
+
+.line_message_out:before {
+  border-top: 1px solid;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+}
+
+.line_message_in{
+  position: relative;
+  background-color: #CCFFFF;
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+.recommend_sidebar{
+  padding: 20px;
