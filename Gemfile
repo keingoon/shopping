@@ -13,6 +13,7 @@ gem 'faker'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 
+
 #画像アップロードのためのgem
 gem 'carrierwave'
 #画像のリサイズのためのgem
@@ -40,7 +41,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'sidekiq'
+gem 'redis-namespace'
+gem 'sidekiq-cron'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,5 +1,5 @@
 current directory: /Users/iwabuchikeigo/shopping-app/vendor/bundle/ruby/2.3.0/gems/rmagick-3.0.0/ext/RMagick
-/Users/iwabuchikeigo/.rbenv/versions/2.3.7/bin/ruby -r ./siteconf20190317-21003-gkpsmn.rb extconf.rb
+/Users/iwabuchikeigo/.rbenv/versions/2.3.7/bin/ruby -r ./siteconf20190325-1949-suc3l2.rb extconf.rb
 checking for clang... yes
 checking for Magick-config... yes
 checking for outdated ImageMagick version (<= 6.8.9)... no
@@ -129,7 +129,7 @@ creating Makefile
 
 
 ======================================================================
-      Sun 17Mar19 15:26:28
+      Mon 25Mar19 22:37:26
 This installation of RMagick 3.0.0 is configured for
 Ruby 2.3.7 (x86_64-darwin18) and ImageMagick 6.9.10
       ======================================================================
@@ -228,4 +228,4 @@ linking shared-object RMagick2.bundle
 
 current directory: /Users/iwabuchikeigo/shopping-app/vendor/bundle/ruby/2.3.0/gems/rmagick-3.0.0/ext/RMagick
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 RMagick2.bundle ./.gem.20190317-21003-1uviw58
+/usr/bin/install -c -m 0755 RMagick2.bundle ./.gem.20190325-1949-p3g7j1
