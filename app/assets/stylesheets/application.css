@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.home-message{
+  text-align: center;
+  color: #008000;
+}
+
+.loginbtn{
+  margin:0 auto;
+}
+
+.newuser-message{
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* user show */
+.user_show_link{
+  color: black;
+  text-decoration: none;
+}
+
+.user_show_link:hover{
+  color: black; text-decoration: none;
+}
+
+.user_show_content:hover{
+  background-color: #EEEEEE;
+}
+
+/* form */
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+
+/* cart sidebar */
+.cart_sidebar {
+  padding: 20px;
+  background-color: #CCFFFF;
+}
+
+.line_message_out {
+  position: relative;
+  text-align: center;
+}
+
+.line_message_out:before {
+  border-top: 1px solid;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+}
+
+.line_message_in{
+  position: relative;
+  background-color: #CCFFFF;
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+.recommend_sidebar{
+  padding: 20px;
+}
+
+/* card作成画面 */
+.card_head{
+  margin: 20px 0px 10px 0px;
+}
+
+.card_info{
+  background-color: #EEEEEE;
+  padding: 10px 0px;
+  margin: 10px 0px;
+}
+
+
+/* 住所一覧画面、作成へのリダイレクト */
+.address_box{
+  height: 180px;
+}
+
+/* 正直アイコンレスポンシブにして、中央寄せするのわかんない */
+.plus_icon{
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+
+/* お支払い方法の選択 */
+.pay_select{
+  border-bottom: solid 1px #DDDDDD;
+  margin-bottom: 10px;
+}
+
+

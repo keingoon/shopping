@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>住所</h1>
+  
+  <% @addresses.each do |address| %>
+    <div class="row">
+      <div class="col-4">
+        <%= link_to(new_address_path, class: 'user_show_link') do %>
+          <div class="card card-body address_box">
+            <span class="plus_icon">
+              <%= octicon "plus", :height => 32,  :class => "right left", :"aria-label" => "hi" %>
+            </span>
+            <p class="text-center">新しい住所を追加</p>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-4">
+        <div class="card card-body address_box">
+          <strong><%= current_user.name %></strong>
+          <small><%= fix_zipcode(address.zip) %></small>
+          <small><%= address.prefecture_id %>, <%= address.address %></small>
+          <small>電話番号: <%= address.phone_number %></small>
+
+          <div class="row" style="margin: 30px 5px 10px 5px;">
+            <small><%= link_to "変更", edit_address_path(address) %> |</small>
+            <small> <%= link_to "削除", address_path(address), method: :delete, data: { confirm: '本当に削除してもいいですか？' }%></small>
+            <% unless address.status = "active" %>
+              <small> | <%= link_to "規定の住所に設定", addresses_path({address_id: address.id})  %></small>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

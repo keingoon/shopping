@@ -1,0 +1,10 @@
+<%= form_for(@company, url: url) do |f| %>
+  <%= render partial: 'shared/error_messages', locals: {model: @company} %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

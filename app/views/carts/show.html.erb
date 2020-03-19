@@ -1,0 +1,60 @@
+<div class="row" style="margin: 15px;">
+  <div class="col-9">
+    <h1>ショッピングカート</h1>
+    <table class="table">
+      <caption>カートの中身</caption>
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">価格</th>
+          <th scope="col">個数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |item| %>
+          <tr>
+            <% if item.product.image_url %>
+              <td><%= image_tag item.product.image_url(:thumb) %></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <td>
+              <h3><%= link_to item.product.name, product_path(item.product) %></h3>
+              <div>出品者：<%=link_to item.product.company.name, company_path(item.product.company) %></div>
+              <div><%= link_to "削除", cart_path(item), method: :delete, date: {confirm: "本当に削除してもいいですか？"} %>
+          </td>
+            <td><%= item.product.price %> 円</td>
+            <td>
+              <%= form_tag(cart_path(@current_cart), method: :get) do %>
+                <%= hidden_field_tag(:cart_item_id, item.id) %>
+                <%= select_tag(:quantity, options_for_select([["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]], item.quantity), :onchange => "this.form.submit()") %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tbody>
+        <tr>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td>小計：<%= @full_price_items %> 円</td>
+       </tr>
+     </tbody>
+    </table>
+  </div>
+  <div class="col-3">
+    <%= render partial: 'cart_sidebar' %>
+  </div> 
+</div>
+
+
+<script type="text/javascript">
+  $(function(){
+    $('#quantity').change(function() {
+        $("form").submit();
+    });
+});
+</script>
+

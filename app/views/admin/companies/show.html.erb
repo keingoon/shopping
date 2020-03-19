@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>企業詳細</h1>
+
+  <p>企業名: <%= @company.name %></p>
+
+  <p>メールアドレス: <%= @company.email %></p>
+
+  <p><%= link_to "企業と関連した商品", admin_products_path(params:{company_id: @company.id})  %></p>
+</div>
+
+

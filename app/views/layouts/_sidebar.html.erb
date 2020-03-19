@@ -1,0 +1,14 @@
+<div class="listings">
+  <div class="listings_admin">
+    <h2 class="listings_header">admin</h2>
+    <ul class="admin_list">
+      <%= sidebar_link_item('企業一覧', admin_companies_path) %>
+      <%= sidebar_link_item('管理者一覧', admin_administrators_path) %>
+      <%= sidebar_link_item('商品一覧', admin_products_path) %>
+      <%= sidebar_link_item('顧客（ユーザー）一覧', admin_users_path) %>
+      <% if admin_logged_in? %>
+        <%= sidebar_link_item('ログアウト', admin_logout_path, :delete) %>
+      <% end %>
+    </ul>
+  </div>
+</div>

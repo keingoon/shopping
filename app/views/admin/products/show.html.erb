@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>商品詳細</h1>
+  <p>名前 : <%= @product.name %></p>
+  <% if @product.image_url %>
+    <p>画像 : <%= image_tag @product.image_url(:thumb) %> </p
+  <% else %>
+    <p>画像 : 画像は存在しません</p>
+  <% end %>
+  <p>値段 : <%= @product.price %> 円 </p>
+</div>

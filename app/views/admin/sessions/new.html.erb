@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>管理者ログイン</h1>
+  <%= form_for(:admin_session, url: admin_login_path) do |f| %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+
+    <%= f.submit "ログイン", class: 'btn btn-primary' %>
+  <% end %>
+</div>
