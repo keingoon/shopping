@@ -1,0 +1,2 @@
+module PaySelectsHelper
+end

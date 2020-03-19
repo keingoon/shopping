@@ -2,7 +2,7 @@
   <h4>小計 (<%= @cart_items.count %> 点) : ￥<%= @full_price_items %></h4>
   <h5>ギフトの設定</h5> <!--　ここにチェックボックスを置く --!>
   <div class="text-center">
-    <%= link_to "レジに進む" ,'#', class: 'btn btn-warning', :style => "width :80%; "%>
+    <%= link_to "レジに進む", new_address_select_path, class: 'btn btn-warning', :style => "width :80%; "%>
   </div>
   <div class="one_click_message">
   <p class="line_message_out"><span class="line_message_in">または</span></p>

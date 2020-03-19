@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>お届け先住所の選択</h1>
+
+  <hr>
+  <div class="row">
+    <% @addresses.each do |address| %>
+      <div class="col-4">
+        <div class="address_lists">
+          <p><strong><%= current_user.name %></strong></p>
+          <p class="small"><%= fix_zipcode(address.zip) %></p>
+          <p class="small"><%= address.prefecture_id %>, <%= address.address %></p>
+          <p class="small">電話番号: <%= address.phone_number %></p>
+
+          <!-- なぜかpathをprefixで指定したら、newに送られるwhy? --!>
+          <%= form_tag(address_selects_path) do %>
+            <%= hidden_field_tag :address_id, address.id %>
+            <%= submit_tag "この住所を使う", class: 'btn-warning btn-block' %>
+          <% end %>
+
+          <div class="row" style="margin: 30px 5px 10px 5px;">
+            <p class="small"><%= link_to "変更", edit_address_path(address) %> |</p>
+            <p class="small"> <%= link_to "削除", address_path(address), method: :delete, data: { confirm: '本当に削除してもいいですか？' }%></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+</div>

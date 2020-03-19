@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :company
+  has_many :cart_items
   validates :name, presence: true, length: {maximum: 50}
   validates :price, presence: true
   mount_uploader :image, ImageUploader

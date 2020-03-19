@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>お支払い方法の選択</h1>
+   
+  <div class="card card-body">
+    <div class="row pay_select">
+      <div class="col-5">
+        <strong>ご登録のクレジットカード</strong>
+      </div>
+      <div class="col-4">
+        <p>クレジットカード名義人</p>
+      </div>
+      <div class="col-3">
+        <p>有効期限</p>
+      </div>
+    </div>
+    <% @cards_info.each do |info| %>
+      <div class="row">
+        <div class="col-5">下4桁：<%= info[:card_last] %></div>
+        <div class="col-4"><%= info[:card_name] %></div>
+        <div class="col-3"><%= info[:exp_month] %> / <%= info[:exp_year] %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

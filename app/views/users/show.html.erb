@@ -1,20 +1,38 @@
-<h1>ユーザ情報をどんどん記入していく。例えばアカウント情報とか注文履歴とか、アカウントサービス、お支払い方法</h1>
-<p><%= @user.name %></p>
-<p><%= @user.name_kana %></p>
-<p><%= @user.email %></p>
+<div class="container">
+  <h1> アカウントサービス</h1>
+  <div class="row" style="margin-top: 30px;">
+    <div class="col">
+      <div class="user_show_content card card-body"> 
+        <strong>注文履歴</strong>
+        <small>配送状況の確認。返品の手続き。</small>
+      </div>
+    </div>
 
-<div>
-  注文履歴
-</div>
+      <div class="col">
+        <%= link_to(edit_user_path(current_user), class: 'user_show_link') do %>
+          <div class="user_show_content card card-body">
+            <strong>ログインとセキュリティ</strong>
+            <small>アカウント情報の変更</small>
+          </div>
+        <% end %>
+      </div>
 
-<div>
-  <%= link_to "ログインとセキュリティ", edit_user_path(current_user) %>
-</div>
+      <div class="col">
+        <%= link_to(new_card_token_path, class: 'user_show_link') do %>
+          <div class="user_show_content card card-body">
+            <strong>お支払い方法</strong>
+            <small>お支払い方法の変更、追加</small>
+          </div>
+        <% end %>
+      </div>
 
-<div>
-  アドレス帳
-<div>
-
-<div>
-  お支払い方法
+    <div class="col">
+      <%= link_to(addresses_path, class: 'user_show_link') do %>
+        <div class="user_show_content card card-body">
+          <strong>アドレス帳</strong>
+          <small>登録住所の追加、変更</small>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

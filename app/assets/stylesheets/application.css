@@ -27,9 +27,23 @@
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 
+
+/* user show */
+.user_show_link{
+  color: black;
+  text-decoration: none;
+}
+
+.user_show_link:hover{
+  color: black; text-decoration: none;
+}
+
+.user_show_content:hover{
+  background-color: #EEEEEE;
+}
 
 /* form */
 #error_explanation {
@@ -79,3 +93,37 @@
 
 .recommend_sidebar{
   padding: 20px;
+}
+
+/* card作成画面 */
+.card_head{
+  margin: 20px 0px 10px 0px;
+}
+
+.card_info{
+  background-color: #EEEEEE;
+  padding: 10px 0px;
+  margin: 10px 0px;
+}
+
+
+/* 住所一覧画面、作成へのリダイレクト */
+.address_box{
+  height: 180px;
+}
+
+/* 正直アイコンレスポンシブにして、中央寄せするのわかんない */
+.plus_icon{
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+
+/* お支払い方法の選択 */
+.pay_select{
+  border-bottom: solid 1px #DDDDDD;
+  margin-bottom: 10px;
+}
+
+

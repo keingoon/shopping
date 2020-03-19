@@ -8,6 +8,10 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
+  has_many :user_cards
+  has_many :cards, through: :user_cards
+  has_many :user_addresses
+  has_many :addresses, through: :user_addresses
 
   # ハッシュ化する関数
   def User.digest(string)

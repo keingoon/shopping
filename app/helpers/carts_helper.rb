@@ -5,7 +5,7 @@ module CartsHelper
       cart = Cart.create
       session[:cart_id] = cart.id
     else
-      cart ||= Cart.find_by(id: cart_id)
+      cart ||= Cart.all.include.find_by(id: cart_id)
       if cart.nil?  # データベースのcartが期限切れで切れてた場合、@current_cart=nilだからcart作り直して、新しくsessionにcart_idを格納する
         cart = Cart.create
         session[:cart_id] = cart.id

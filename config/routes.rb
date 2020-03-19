@@ -23,6 +23,11 @@ Rails.application.routes.draw do
   resources :products
   resources :companies
   resources :carts
+  resources :card_tokens
+  resources :addresses
+  resources :pays
+  resources :address_selects  #ここ二つをpaysにネストさせたらどうなるんだろうか？session以外の方法が見つかるのだろうか？
+  resources :pay_selects
   root 'static_pages#home'
   get 'static_pages/home'
   get 'static_pages/help'

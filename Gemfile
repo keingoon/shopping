@@ -13,7 +13,8 @@ gem 'faker'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 
-
+# 決済のためのgem
+gem 'payjp'
 #画像アップロードのためのgem
 gem 'carrierwave'
 #画像のリサイズのためのgem
@@ -47,6 +48,8 @@ gem 'sidekiq-cron'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# githubのアイコンを使うためのgem
+gem 'octicons_helper'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

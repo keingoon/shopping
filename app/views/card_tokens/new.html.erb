@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>お支払い方法</h1>
+
+  <div class="card_head">
+    <div class="row">
+      <h5 class="col-5">ご登録のクレジットカード</h5>
+      <h5 class="col-5">有効期限</h5>
+    </div>
+  </div>
+ 
+  <% @cards_info.each do |info| %>
+    <div class="card_info border border-dark rounded">
+      <div class="row">
+        <div class="col-5">末尾：<%= info[:card_last] %></div>
+        <div class="col-5"><%= info[:exp_month] %>/<%= info[:exp_year] %></div>
+        <div class="col-2"><%= link_to "詳細", "#collapseExample", class: 'btn btn-primary', "data-toggle": "collapse", "data-target": "#collapseExample",  role: "button", "aria-expanded": "false", "area-controls": "#collapseExample" %></div>
+      </div>
+    </div>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+      <p class="font-weight-bold">クレジットカード名義人</p> <!-- ここに請求先住所も入れたい --!>
+        <p><%= info[:card_name] %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <h1 style="margin-top: 30px;">お支払い方法を追加</h1>
+  <%= form_tag( action: :create, method: :post) do %>
+    <div class="form-group text-center">
+      <script src="https://checkout.pay.jp/" class="payjp-button" data-key="pk_test_4231383fd5c245a6a950d404" data-text="カードを追加する"></script>
+    </div>
+  <% end %>
+
+</div>
+
